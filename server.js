@@ -15,7 +15,8 @@ const apiRoutes = require("./routes/apiRoutes");
 const app = express();
 
 // Make the "public" folder available to serve static assets to clients
-app.use(express.static("publilc"));
+app.use(express.static("public"));
+
 
 // Use express Router routes
 app.use(htmlRoutes);
@@ -26,7 +27,7 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cl
     useNewUrlParser: true,
     useFindAndModify: false
   }).then(result => {
-    console.log(result);
+    console.log("Connected to database");
     app.listen(process.env.PORT, () => {
         console.log(`Server is running on port ${process.env.PORT}`);
     });
