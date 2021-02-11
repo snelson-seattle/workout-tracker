@@ -27,7 +27,7 @@ app.use(htmlRoutes);
 app.use(apiRoutes);
 
 // Connect to DB then start the web server
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ycxmw.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
+mongoose.connect(process.env.MONGODB_URI || `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.ycxmw.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
     useNewUrlParser: true,
     useFindAndModify: false,
     useUnifiedTopology: true
