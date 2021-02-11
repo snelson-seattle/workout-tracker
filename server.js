@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI || `mongodb+srv://${process.env.DB_USER
     useUnifiedTopology: true
   }).then(result => {
     console.log("Connected to database");
-    app.listen(process.env.PORT, () => {
+    app.listen(process.env.PORT || 8080, () => {
         console.log(`Server is running on port ${process.env.PORT}`);
     });
   }).catch(err => {
