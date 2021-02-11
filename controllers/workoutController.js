@@ -43,7 +43,7 @@ exports.putAddExercise = (req, res) => {
         return workout.save();
     }).then(result => {
         console.log("New Exercise added to " + workoutID);
-        res.redirect("/exercise");
+        res.json(result);
     }).catch(err => {
         console.log(err);
     });
